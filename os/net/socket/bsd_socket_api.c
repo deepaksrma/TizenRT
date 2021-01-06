@@ -108,6 +108,7 @@ int accept(int s, struct sockaddr *addr, socklen_t *addrlen)
 
 int shutdown(int s, int how)
 {
+lldbg("line = %d, function = %d\n", __LINE__, __FUNCTION__);
 	return lwip_shutdown(s, how);
 }
 

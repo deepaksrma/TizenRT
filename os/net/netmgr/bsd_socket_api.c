@@ -53,6 +53,7 @@ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen)
 
 int shutdown(int sockfd, int how)
 {
+lldbg("line = %d, function = %d\n", __LINE__, __FUNCTION__);
 	NETSTACK_CALL_BYFD(sockfd, shutdown, (sockfd, how));
 }
 

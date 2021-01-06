@@ -1977,7 +1977,7 @@ int lwip_shutdown(int s, int how)
 		return -1;
 	}
 	err = netconn_shutdown(sock->conn, shut_rx, shut_tx);
-
+lldbg("err = %d, line = %d, function = %d\n", err, __LINE__, __FUNCTION__);
 	sock_set_errno(sock, err_to_errno(err));
 	return (err == ERR_OK ? 0 : -1);
 }

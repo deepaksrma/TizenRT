@@ -135,14 +135,16 @@ void tc_net_sendto_shutdown_n(int fd)
 	int len = strlen(buffer) + 1;
 	struct sockaddr_in dest;
 	socklen_t fromlen;
+lldbg("fd = %d\n", fd);
 	memset(&dest, 0, sizeof(dest));
 	dest.sin_family = AF_UNIX;
 	dest.sin_addr.s_addr = inet_addr("127.0.0.1");
 	dest.sin_port = htons(PORTNUM);
 	fromlen = sizeof(dest);
 	shutdown(fd, SHUT_WR);
+lldbg("line = %d, function = %d\n", __LINE__, __FUNCTION__);
 	int ret = sendto(fd, buffer, len, 0, (struct sockaddr *)&dest, fromlen);
-
+lldbg("line = %d, function = %d\n", __LINE__, __FUNCTION__);
 	TC_ASSERT_EQ("sendto", ret, -1);
 	TC_SUCCESS_RESULT();
 
