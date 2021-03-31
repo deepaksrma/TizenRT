@@ -177,8 +177,8 @@
 #define is_digit(c)         ((unsigned)(c) - '0' <= 9)
 #define BIGGEST(a, b)       (((a) > (b)) ? (a) : (b))
 #define MY_TZNAME_MAX       255
-#define GMT                 "GMT"
-#define GMTLEN              3
+#define GMT                 "Etc/GMT"
+#define GMTLEN              7
 
 #define JULIAN_DAY            0	/* Jn = Julian day */
 #define DAY_OF_YEAR           1	/* n = day of year */
