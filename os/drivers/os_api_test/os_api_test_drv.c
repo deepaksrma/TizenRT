@@ -191,6 +191,14 @@ static int os_api_test_drv_ioctl(FAR struct file *filep, int cmd, unsigned long 
 		ret = test_net_pbuf(cmd, arg);
 		break;
 #endif
+
+#ifdef CONFIG_TC_NET_POLL
+	/* Run the test case for poll   */
+	case TESTIOC_NET_POLL:
+	ret = test_net_poll(cmd, arg);
+		break;
+#endif
+
 #if defined(CONFIG_AUTOMOUNT_USERFS) && defined(CONFIG_EXAMPLES_TESTCASE_FILESYSTEM)
 	case TESTIOC_GET_FS_PARTNO:
 		ret = test_fs_get_devname();

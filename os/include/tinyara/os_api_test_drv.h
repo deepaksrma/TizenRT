@@ -87,12 +87,21 @@
 #if defined(CONFIG_AUTOMOUNT_USERFS) && defined(CONFIG_EXAMPLES_TESTCASE_FILESYSTEM)
 #define TESTIOC_GET_FS_PARTNO			_TESTIOC(24)
 #endif
+#ifdef CONFIG_TC_NET_POLL
+#define TESTIOC_NET_POLL                       _TESTIOC(25)
+#endif
 
 #define OS_API_TEST_DRVPATH	"/dev/os_api_test"
 
 /****************************************************************************
  * Public Data
  ****************************************************************************/
+
+struct poll_test_args {
+	int fd;
+	struct pollfd *fds;
+	bool setup;
+};
 
 /****************************************************************************
  * Public Function Prototypes
