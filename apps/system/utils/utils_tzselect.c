@@ -120,7 +120,7 @@ int utils_tzselect(int argc, char **args)
 	strncpy(path, TZDIR, MAX_PATH_LEN);
 	ret = search_tz(path);
 	if (ret) {
-		setenv("TZ", path, 0);
+		setenv("TZ", path, 1);
 		printf("Set time zone : %s\n", path);
 		tzset();
 	} else {
